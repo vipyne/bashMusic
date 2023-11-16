@@ -1,8 +1,8 @@
 on run argv
   set artistName to item 1 of argv
-  set playlistName to "zshMusic"
+  set playlistName to "bashMusic"
 -- Construct the AppleScript command to play the artist's discography
-tell application "Music"
+tell application "Spotify"
 	set artistPlaylist to null
 	repeat with aPlaylist in playlists
 		if (name of aPlaylist is equal to playlistName) then

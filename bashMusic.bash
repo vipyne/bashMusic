@@ -1,47 +1,47 @@
-#!/bin/zsh
+#!/bin/bash
 
-dir="$(dirname "${0:A}")/appleScripts"
+dir="$(dirname "${BASH_SOURCE[0]}")/appleScripts"
 
 music() {
   if [[ -z $1 ]]; then
     help
   else
     case $1 in
-      -open | -o)
+      open | -o)
           osascript $dir/open.applescript
         ;;
-      -artist | -a)
+      artist | -a)
         if [[ -z $2 ]]; then
-          echo "You Need to pass an Artist"
+          echo "Usage: music -a <Artist>"
         else
           osascript $dir/playArtist.applescript "$2"
         fi
         ;;
-      -vol | -v)
+      vol | -v)
         if [[ -z $2 ]]; then
-          echo "This set volume 0-100"
+          echo "Usage: music -v <0-100>"
         else
           osascript $dir/volume.applescript "$2"
         fi
         ;;
-      -stop | -s)
+      stop | -s)
         osascript $dir/pause.applescript "$2"
         ;;
-      -play | -p)
+      play | -p)
         osascript $dir/play.applescript "$2"
         ;;
-      -next | -n)
+      next | -n)
         osascript $dir/next.applescript "$2"
         ;;
-      -current | -c)
+      current | -c)
         osascript $dir/current.applescript "$2"
         ;;
-      -help | -h)
+      help | -h)
         help
         ;;
       *)
         help
-        echo "Invalid option flag."
+        echo "Invalid option flag. try again, you got this 👾"
         ;;
     esac
   fi
@@ -57,43 +57,44 @@ header3="DESCRIPTION"
 header4="USAGE"
 
 # Print table rows
-com1="-open"
+com1="open"
 cmd1="-o"
 des1="Launches Music"
 ex1="music -o"
 
-com2="-vol"
+com2="vol"
 cmd2="-v"
 des2="Changes volume"
 ex2="music -v 10"
 
-com3="-artist"
+com3="artist"
 cmd3="-a"
 des3="Plays artist from lib"
 ex3="music -a metallica"
 
-com4="-stop"
+com4="stop"
 cmd4="-s"
 des4="Pauses Music"
 ex4="music -s"
 
-com5="-play"
+com5="play"
 cmd5="-p"
 des5="Plays Music"
 ex5="music -p"
 
-com6="-next"
+com6="next"
 cmd6="-n"
 des6="Skips song"
 ex6="music -n"
 
-com7="-current"
+com7="current"
 cmd7="-c"
 des7="Shows current track"
 ex7="music -c"
 
 
 echo ''
+echo '😂'
 echo "  ;;;;;; ███████ ███████ ██   ██ ███    ███ ██    ██ ███████ ██  ██████ "
 sleep 0.01
 echo "  ;    ;    ███  ██      ██   ██ ████  ████ ██    ██ ██      ██ ██      "

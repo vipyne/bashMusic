@@ -1,4 +1,4 @@
-tell application "Music"
+tell application "Spotify"
     if player state is playing then
         set trackName to name of current track
         set artistName to artist of current track

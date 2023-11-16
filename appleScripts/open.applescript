@@ -1,3 +1,3 @@
-tell application "Music"
+tell application "Spotify"
   launch
 end tell
